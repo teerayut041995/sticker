@@ -9,6 +9,7 @@
 <p><br></p>
 <div class="container">
   <div class="row row-cols-3">
+    <p>TEXT</p>
     <div class="col" *ngFor="let item of sticker">
       <img [src]="item.path"  class="image-sticker" (click)="selectSticker(item)">
       <!-- <button class="btn btn-info">button 1</button> -->
@@ -21,5 +22,13 @@
     <div class="col" style="align-items: center;">
       <button class="btn btn-danger btn-block" (click)="clearSticker()">CLEAR</button>
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <video (click)="toggleVideo()" #videoPlayer>
+      <source src="/assets/video/video-1.mp4" type="video/mp4">
+    </video>
   </div>
 </div>

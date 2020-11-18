@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
+  isPlay: boolean = false;
   title = 'sticker';
 
   public select: Sticker;
@@ -28,6 +30,7 @@ export class AppComponent implements OnInit{
     }
   ];
   public image: string = '/assets/images/sticker-1.gif';
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -41,6 +44,10 @@ export class AppComponent implements OnInit{
 
   clearSticker() {
     this.select = null;
+  }
+
+  toggleVideo() {
+    this.videoplayer.nativeElement.play();
   }
 
 }
