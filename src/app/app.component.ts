@@ -14,23 +14,58 @@ export class AppComponent implements OnInit{
 
   public sticker: Sticker[] = [
     {
-      id: '1',
-      name: 'หิว',
-      path: '/assets/images/sticker-1.gif'
+      name: 'ห้องน้ำ',
+      path: '/assets/video/video-1.mp4',
+      gif: '/assets/gif/sticker-1.gif'
     },
     {
-      id: '2',
-      name: 'ดีใจ',
-      path: '/assets/images/sticker-2.gif'
+      name: 'เสียใจนะ',
+      path: '/assets/video/video-2.mp4',
+      gif: '/assets/gif/sticker-2.gif'
     },
     {
-      id: '2',
-      name: 'โกรธ',
-      path: '/assets/images/sticker-3.gif'
+      name: 'ปวดหัวจังเลย',
+      path: '/assets/video/video-3.mp4',
+      gif: '/assets/gif/sticker-3.gif'
+    },
+    {
+      name: 'เหนื่อยจัง',
+      path: '/assets/video/video-4.mp4',
+      gif: '/assets/gif/sticker-4.gif'
+    },
+    {
+      name: 'ไม่ค่ะ',
+      path: '/assets/video/video-5.mp4',
+      gif: '/assets/gif/sticker-5.gif'
+    },
+    {
+      name: 'ชอบมากเลยค่ะ',
+      path: '/assets/video/video-6.mp4',
+      gif: '/assets/gif/sticker-6.gif'
+    },
+    {
+      name: 'ร้อนจังเลย',
+      path: '/assets/video/video-7.mp4',
+      gif: '/assets/gif/sticker-7.gif'
+    },
+    {
+      name: 'เค้าโกรธแล้วนะ',
+      path: '/assets/video/video-8.mp4',
+      gif: '/assets/gif/sticker-8.gif'
+    },
+    {
+      name: 'หิวจังเลย',
+      path: '/assets/video/video-9.mp4',
+      gif: '/assets/gif/sticker-9.gif'
+    },
+    {
+      name: 'ดีใจจังเลย',
+      path: '/assets/video/video-10.mp4',
+      gif: '/assets/gif/sticker-10.gif'
     }
   ];
   public image: string = '/assets/images/sticker-1.gif';
-  
+
   constructor() { }
 
   ngOnInit(): void {
@@ -40,6 +75,7 @@ export class AppComponent implements OnInit{
   selectSticker(sticker) {
     this.select = sticker;
     console.log(this.select);
+    this.toggleVideo();
   }
 
   clearSticker() {
@@ -47,13 +83,13 @@ export class AppComponent implements OnInit{
   }
 
   toggleVideo() {
-    this.videoplayer.nativeElement.play();
+    this.videoplayer?.nativeElement.play();
   }
 
 }
 
 interface Sticker {
-  id: string,
   name: string,
-  path: string
+  path: string,
+  gif: string,
 }

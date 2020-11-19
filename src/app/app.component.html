@@ -1,34 +1,31 @@
 <div class="container" *ngIf="select" >
   <div class="row" >
     <div class="col" style="align-items: center;">
-      <img [src]="select.path"  class="image-sticker" (click)="selectSticker(select)">
+      <video  (click)="toggleVideo()" #videoPlayer
+          [src]="select.path"
+          autoplay
+      >
+      </video>
       <h4 style="text-align: center;">{{select.name}}</h4>
     </div>
   </div>
 </div>
 <p><br></p>
 <div class="container">
-  <div class="row row-cols-3">
-    <p>TEXT</p>
-    <div class="col" *ngFor="let item of sticker">
-      <img [src]="item.path"  class="image-sticker" (click)="selectSticker(item)">
-      <!-- <button class="btn btn-info">button 1</button> -->
+  <div class="row row-cols-6">
+    <div class="col-4" *ngFor="let item of sticker">
+      <!-- <img [src]="item.gif"  class="image-sticker" (click)="selectSticker(item)"> -->
+      <video (click)="selectSticker(item)" style="width: 80px;">
+        <source [src]="item.path" type="video/mp4">
+      </video>
     </div>
   </div>
 </div>
 <br>
 <div class="container" *ngIf="select">
   <div class="row row-cols-3">
-    <div class="col" style="align-items: center;">
+    <div class="col-md-3" style="align-items: center;">
       <button class="btn btn-danger btn-block" (click)="clearSticker()">CLEAR</button>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-3">
-    <video (click)="toggleVideo()" #videoPlayer>
-      <source src="/assets/video/video-1.mp4" type="video/mp4">
-    </video>
   </div>
 </div>
