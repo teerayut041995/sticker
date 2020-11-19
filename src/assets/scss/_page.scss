@@ -1,12 +1,65 @@
-$primary: #ff5722 !default;
-$secondary: #ffa62b !default;
+$primary: #ff2525 !default;
+$secondary: #ff0061 !default;
+$accent: #fec194 !default;
 $dark: #1a1c20 !default;
 $light: #f6f5f5 !default;
 $cyan: #f1f6f9 !default;
 $red: #ff414d !default;
 $white: #fff !default;
 $blue: #0779e4 !default;
+$touch: linear-gradient(90deg,rgba(255,37,37,1) 50%, rgba(255,0,97,1) 100%);
+$gradient: linear-gradient(140deg, rgba(254,193,148,1) 0%, rgba(255,37,37,1) 50%, rgba(255,0,97,1) 100%);
+$gradient-webkit: -webkit-linear-gradient(140deg, rgba(254,193,148,1) 0%, rgba(255,37,37,1) 50%, rgba(255,0,97,1) 100%);
+$gradient-opacity: linear-gradient(140deg, rgba(254,193,148,.8) 0%, rgba(255,37,37,.8) 50%, rgba(255,0,97,.8) 100%);
 
+.starter {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: $white;
+    z-index: 10;
+}
+.starter-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    & .starter-content--position {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        & .img-front {
+            margin-left: -150px;
+            margin-bottom: 30px;
+            & img {
+                height: 140px;
+                width: auto;
+            }
+        }
+        & .img-back {
+            margin-right: -150px;
+            margin-bottom: 50px;
+            & img {
+                height: 140px;
+                width: auto;
+            }
+        }
+    }
+}
+.text-gradient {
+    background: $gradient-webkit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.modal-content  {
+    -webkit-border-radius: 18px !important;
+    -moz-border-radius: 18px !important;
+    border-radius: 18px !important; 
+    border: none !important;
+}
 .row {
     margin: 0;
 }
@@ -15,8 +68,12 @@ $blue: #0779e4 !default;
     overflow: hidden;
 }
 .page-title {
-    padding: 2.4rem 0;
+    padding: 2.4rem 0 .5rem;
     // background-color: turquoise;
+}
+.img-logo {
+    height: 60px;
+    width: auto;
 }
 // desktop
 .page-content-lg {
@@ -32,13 +89,17 @@ $blue: #0779e4 !default;
         left: 50%;
         transform: translateX(-50%);
         margin-top: 40px;
-        & h5 {
+        & h5.text-felling {
             line-height: 2.8;
+            background: $gradient-webkit;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         & img {
-            height: 480px;
+            height: 460px;
             width: auto;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1)) grayscale(100);
+            
         }
     }
     & .content-position {
@@ -46,7 +107,7 @@ $blue: #0779e4 !default;
         top: 0;
         left: 0;
         margin-left: 10px;
-        margin-top: 10px;
+        margin-top: 40px;
     }
 }
 .page-scroll {
@@ -56,6 +117,7 @@ $blue: #0779e4 !default;
     border: 1px solid $cyan;
     background-color: $light;
     border-radius: 12px;
+    background: $gradient-opacity;
 }
 .card {
     border-radius: 18px;
@@ -78,7 +140,7 @@ $blue: #0779e4 !default;
     border: 1px solid $light;
     background-color: transparent;
     transition: all .2s ease-out;
-    &.btn-reset {
+    &.btn-gradient {
         & .icon {
             color: $dark;
             -webkit-transform: rotate(0);
@@ -86,8 +148,8 @@ $blue: #0779e4 !default;
             transition: all .4s ease-out;
         }
         &:hover, &:focus {
-            background-color: $red;
-            border-color: $red;
+            background: $gradient;
+            border-color: $gradient;
             filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
         }
         &:hover .icon, &:focus .icon {
@@ -96,52 +158,52 @@ $blue: #0779e4 !default;
             transform: rotate(180deg);
         }
         &:active {
-            background-color: $red;
+            background-color: $gradient;
         }
     }
-    &.btn-content {
-        & .icon {
-            color: $dark;
-            -webkit-transform: rotate(0);
-            transform: rotate(0);
-            transition: all .4s ease-out;
-        }
-        &:hover, &:focus {
-            background-color: $secondary;
-            border-color: $secondary;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-        }
-        &:hover .icon, &:focus .icon {
-            color: $white;
-            -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-        }
-        &:active {
-            background-color: $secondary;
-        }
-    }
-    &.btn-sticker {
-        & .icon {
-            color: $dark;
-            -webkit-transform: rotate(0);
-            transform: rotate(0);
-            transition: all .4s ease-out;
-        }
-        &:hover, &:focus {
-            background-color: $blue;
-            border-color: $blue;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-        }
-        &:hover .icon, &:focus .icon {
-            color: $white;
-            -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-        }
-        &:active {
-            background-color: $blue;
-        }
+    // &.btn-content {
+    //     & .icon {
+    //         color: $dark;
+    //         -webkit-transform: rotate(0);
+    //         transform: rotate(0);
+    //         transition: all .4s ease-out;
+    //     }
+    //     &:hover, &:focus {
+    //         background-color: $secondary;
+    //         border-color: $secondary;
+    //         filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    //     }
+    //     &:hover .icon, &:focus .icon {
+    //         color: $white;
+    //         -webkit-transform: rotate(180deg);
+    //         transform: rotate(180deg);
+    //     }
+    //     &:active {
+    //         background-color: $secondary;
+    //     }
+    // }
+    // &.btn-sticker {
+    //     & .icon {
+    //         color: $dark;
+    //         -webkit-transform: rotate(0);
+    //         transform: rotate(0);
+    //         transition: all .4s ease-out;
+    //     }
+    //     &:hover, &:focus {
+    //         background-color: $blue;
+    //         border-color: $blue;
+    //         filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    //     }
+    //     &:hover .icon, &:focus .icon {
+    //         color: $white;
+    //         -webkit-transform: rotate(180deg);
+    //         transform: rotate(180deg);
+    //     }
+    //     &:active {
+    //         background-color: $blue;
+    //     }
 
-    }
+    // }
 }
 // mobile
 .page-content-sm {
@@ -154,6 +216,7 @@ $blue: #0779e4 !default;
         & img {
             width: 100%;
             height: 100%;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1)) grayscale(100);
         }
     }
     & .content-position--sm {
@@ -165,11 +228,12 @@ $blue: #0779e4 !default;
 }
 .page-content-sm--choice {
     padding: 1rem .5rem 1rem;
-    background-color: $light;
+    // background-color: $light;
+    background: $gradient-opacity;
     filter: drop-shadow(0 5px 25px rgba(0, 0, 0, 0.3));
     border-top-right-radius: 32px;
     border-top-left-radius: 32px;
-    .card {
+    & .card {
         &:hover, &:focus {
             -webkit-transform: translateY(-4px);
             transform: translateY(-4px);
@@ -184,7 +248,8 @@ $blue: #0779e4 !default;
     height: .4rem;
     width: 4rem;
     border-radius: 1rem;
-    background-color: lighten($color: $dark, $amount: 60) ;
+    // background-color: lighten($color: $dark, $amount: 60) ;
+    background: $touch;
     transition: all .2s ease-in-out;
     &:hover, &:focus {
         -webkit-transform: translateY(-3px);
@@ -203,16 +268,38 @@ $blue: #0779e4 !default;
  }
 
 @media (max-width: 576px) { 
+    .starter-content {
+        & .starter-content--position {
+            & .img-front {
+                margin-left: 0;
+                & img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            & .img-back {
+                margin-right: 0;
+                & img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
     .container-fluid {
         margin: 0;
         padding: 0;
+    }
+    .img-logo {
+        height: 100%;
+        width: 100%;
     }
     .page-title {
         padding: 1.2rem;
     }
     .btn {
         padding: .4rem .65rem .25rem;
-        &.btn-reset .icon, &.btn-content .icon, &.btn-sticker .icon {
+        &.btn-gradient .icon {
             height: 14px;
             width: 14px;
         }
