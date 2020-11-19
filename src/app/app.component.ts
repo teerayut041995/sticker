@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import * as Feather from 'feather-icons';
 
 @Component({
   selector: 'app-root',
@@ -69,7 +70,7 @@ export class AppComponent implements OnInit{
   constructor() { }
 
   ngOnInit(): void {
-
+    Feather.replace();
   }
 
   selectSticker(sticker) {
@@ -84,6 +85,15 @@ export class AppComponent implements OnInit{
 
   toggleVideo() {
     this.videoplayer?.nativeElement.play();
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
+  }
+
+  scrollDown(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
   }
 
 }

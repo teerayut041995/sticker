@@ -1,31 +1,180 @@
-<div class="container" *ngIf="select" >
-  <div class="row" >
-    <div class="col" style="align-items: center;">
-      <video  (click)="toggleVideo()" #videoPlayer
-          [src]="select.path"
-          autoplay
-      >
-      </video>
-      <h4 style="text-align: center;">{{select.name}}</h4>
+<!-- <div class="container"> -->
+  <!-- title -->
+  <!-- <div class="section-title">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center">Convey Feelings</h1>
+      </div>
     </div>
-  </div>
-</div>
-<p><br></p>
-<div class="container">
-  <div class="row row-cols-6">
-    <div class="col-4" *ngFor="let item of sticker">
-      <!-- <img [src]="item.gif"  class="image-sticker" (click)="selectSticker(item)"> -->
-      <video (click)="selectSticker(item)" style="width: 80px;">
-        <source [src]="item.path" type="video/mp4">
-      </video>
+  </div> -->
+    <!-- preview -->
+    <!-- <div class="section-preview"> -->
+      <!-- show -->
+      <!-- <div *ngIf="select">
+        <div class="d-flex justify-content-center">
+          <video (click)="toggleVideo()" #videoPlayer
+            [src]="select.path"
+            autoplay
+          >
+          </video>
+        </div>
+        <div class="d-flex justify-content-center"><h5>{{select.name}}</h5></div>
+      </div> -->
+      <!-- hide -->
+      <!-- <div *ngIf="!select"><p>TEXT</p></div>
+    </div> -->
+    <!-- choice sticker -->
+    <!-- <div class="section-preview--choice">
+      <div class="row">
+        <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of sticker">
+          <div class="p-3">
+            <video (click)="selectSticker(item)" width="100%">
+              <source [src]="item.path" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<br>
-<div class="container" *ngIf="select">
-  <div class="row row-cols-3">
-    <div class="col-md-3" style="align-items: center;">
-      <button class="btn btn-danger btn-block" (click)="clearSticker()">CLEAR</button>
+</div> -->
+<div class="container-fluid">
+  <div class="page">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center animate__animated animate__backInDown">Convey Feelings</h2>
+        </div>
+      </div>
+    </div>
+    <!-- desktop -->
+    <div class="page-content-lg d-none d-lg-block">
+      <div class="row">
+        <!-- preview -->
+        <div class="col-lg-8">
+          <div class="page-content-lg--preview">
+            <div class="content-sticker">
+              <div *ngIf="select">
+                <div class="d-flex justify-content-center">
+                  <video (click)="toggleVideo()" #videoPlayer
+                    [src]="select.path"
+                    autoplay
+                    height="480"
+                  >
+                  </video>
+                </div>
+                <div class="d-flex justify-content-center mt-3"><h5>{{select.name}}</h5></div>
+              </div>
+              <div *ngIf="!select">
+                <div class="d-flex">
+                  <img [src]="['/assets/images/like.png']" class="img-sticker">
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                  <h5 class="text-muted text-center">โปรดเลือกสติ๊กเกอร์ของคุณ</h5>
+                </div>
+              </div>
+            </div>
+            <div class="content-position">
+              <button (click)="clearSticker()" type="button" class="d-block btn btn-reset animate__animated animate__backInLeft animate__delay-2s" tooltip="รีเซ็ต">
+                <i class="icon" data-feather="rotate-cw"></i>
+              </button>
+              <button type="button" class="d-block btn btn-content animate__animated animate__backInLeft animate__delay-3s" tooltip="ข้อมูล">
+                <i class="icon" data-feather="info"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- content -->
+        <div class="col-12 col-lg-4 d-none d-md-block">
+          <div class="page-content-lg--choice">
+            <div class="row">
+              <div class="col-12">
+                <p class="text-muted text-center"><small>เลือกสติ๊กเกอร์เพื่อแสดงความรู้สึกของคุณ</small></p>
+              </div>
+            </div>
+            <div class="page-scroll">
+            <div class="row">
+                <div class="col-lg-4 animate__animated animate__zoomIn" *ngFor="let item of sticker">
+                  <div class="card">
+                    <div class="card-body">
+                      <video (click)="selectSticker(item)" width="100%">
+                        <source [src]="item.path" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end content -->
+      </div>
+    </div>
+    <!-- mobile -->
+    <div class="page-content-sm">
+      <div class="row">
+        <!-- preview -->
+        <div class="col-12">
+          <div class="page-content-sm--preview">
+            <div class="content-sticker--sm">
+              <div *ngIf="select">
+                <div class="d-flex justify-content-center">
+                  <video (click)="toggleVideo()" #videoPlayer
+                    [src]="select.path"
+                    autoplay
+                    height="480"
+                  >
+                  </video>
+                </div>
+                <div class="d-flex justify-content-center mt-3"><h5>{{select.name}}</h5></div>
+              </div>
+              <div *ngIf="!select">
+                <div class="d-flex p-3">
+                  <img [src]="['/assets/images/like.png']" class="img-sticker">
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                  <h6 class="text-muted text-center">โปรดเลือกสติ๊กเกอร์ของคุณ</h6>
+                </div>
+              </div>
+            </div>
+            <div class="content-position--sm">
+              <button (click)="clearSticker()" type="button" class="d-block btn btn-reset animate__animated animate__backInLeft animate__delay-2s" tooltip="รีเซ็ต">
+                <i class="icon" data-feather="rotate-cw"></i>
+              </button>
+              <button type="button" class="d-block btn btn-content animate__animated animate__backInLeft animate__delay-3s" tooltip="ข้อมูล">
+                <i class="icon" data-feather="info"></i>
+              </button>
+              <button (click)="scrollDown(target)" type="button" class="d-block btn btn-sticker animate__animated animate__backInLeft animate__delay-4s" tooltip="สติ๊กเกอร์">
+                <i class="icon" data-feather="smile"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- content -->
+          <div class="page-content-sm--choice animate__animated animate__bounceInUp" #target>
+            <div class="row">
+              <div class="col-12 mb-4">
+                <div class="d-flex justify-content-center">
+                  <div (click)="scrollDown(target)" class="box-touch"></div>
+                </div>
+              </div>
+              <div class="col-12 mb-2">
+                <p class="text-muted text-center"><small>เลือกสติ๊กเกอร์เพื่อแสดงความรู้สึกของคุณ</small></p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-6 animate__animated animate__zoomIn" *ngFor="let item of sticker">
+                  <div class="card">
+                    <div class="card-body">
+                      <video (click)="selectSticker(item)" width="100%">
+                        <source [src]="item.path" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>

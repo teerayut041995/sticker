@@ -1,0 +1,45 @@
+$primary: #ff5722 !default;
+$secondary: #ffa62b !default;
+$dark: #1a1c20 !default;
+$light: #f6f5f5 !default;
+$cyan: #f1f6f9 !default;
+$red: #ff414d !default;
+$white: #fff !default;
+
+.section-title {
+    padding: 2rem 0;
+}
+.section-preview {
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+.section-preview--button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    & .btn-link .icon {
+        color: $dark;
+    }
+}
+.section-preview--sticker {
+    width: 100%;
+    height: auto;
+}
+.section-preview--choice {
+    background-color: $white;
+    padding: 15px 25px;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.25));
+}
+
+@media (max-width: 576px) { 
+    .container {
+        padding: 0;
+    }
+    .section-title {
+        padding: 1.2rem;
+    }
+ }
