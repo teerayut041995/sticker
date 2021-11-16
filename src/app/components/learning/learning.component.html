@@ -1,0 +1,26 @@
+<!-- title -->
+<div class="row">
+    <div class="col-12">
+        <div class="card card-title">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div><a [routerLink]="['/']"><i-bs name="arrow-left" width="20" height="20"></i-bs></a></div>
+                    <div class="mx-auto"><h6 class="mb-0">กำลังเรียน</h6></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content -->
+<div class="row">
+    <div class="col-6 col-md-4" *ngFor="let item of happening">
+        <a [routerLink]="[item.link]">
+        <div class="card card-content">
+            <div class="card-body">
+                <img [src]="item.image" class="img-fluid">
+                <h6>{{item.name}}</h6>
+            </div>
+        </div>
+        </a>
+    </div>
+</div>

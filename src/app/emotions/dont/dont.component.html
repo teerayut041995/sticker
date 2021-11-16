@@ -1,0 +1,27 @@
+<!-- title -->
+<div class="row">
+  <div class="col-12">
+      <div class="card card-title">
+          <div class="card-body">
+              <div class="d-flex align-items-center">
+                  <div><a [routerLink]="['/unhappy/sad']"><i-bs name="arrow-left" width="20" height="20"></i-bs></a></div>
+                  <div class="mx-auto"><h6 class="mb-0">ไม่ค่ะ</h6></div>
+                  <div><a href="javascript:void(0)" (click)="toggleVideo()"><i-bs name="arrow-clockwise" width="20" height="20"></i-bs></a></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- content -->
+<div class="row">
+    <div class="col-md-12">
+            <div class="d-flex justify-content-center">
+              <video #videoPlayer
+                [src]="['/assets/video/video-5.mp4']"
+                autoplay
+                height="450"
+              >
+              </video>
+            </div>
+    </div>
+</div>

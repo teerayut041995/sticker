@@ -64,15 +64,16 @@ $gradient-opacity: linear-gradient(140deg, rgba(254,193,148,.8) 0%, rgba(255,37,
     margin: 0;
 }
 .page {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 .page-title {
     padding: 2.4rem 0 .5rem;
-    // background-color: turquoise;
+    margin-bottom: 1.25rem;
 }
 .img-logo {
-    height: 60px;
+    height: 80px;
     width: auto;
 }
 // desktop
@@ -122,15 +123,24 @@ $gradient-opacity: linear-gradient(140deg, rgba(254,193,148,.8) 0%, rgba(255,37,
 .card {
     border-radius: 18px;
     border: none;
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
     margin-bottom: 2rem;
     transition: all .2s ease-out;
+}
+.card.card-content {
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.06));
     &:hover, &:focus {
-        -webkit-transform: scale(1.1) translateY(-4px);
-        transform: scale(1.1) translateY(-4px);
+        -webkit-transform: scale(1.01) translateY(-4px);
+        transform: scale(1.01) translateY(-4px);
         // transform: scale(1.1);
         filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
     }
+}
+a {
+    &:hover, &:focus { text-decoration: none; }
+    & .card.card-content .card-body h6 { margin-top: 1rem; text-align: center; color: #1a1c20 !important;}
+}
+.card.card-title {
+    background-color: rgba(255, 255, 255, .8);
 }
 
 .btn {

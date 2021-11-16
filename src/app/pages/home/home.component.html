@@ -1,0 +1,39 @@
+<!-- starter -->
+<div class="starter animate__animated animate__zoomOut animate__delay-2s" *ngIf="starter">
+    <div class="starter-content">
+      <div class="starter-content--position">
+        <div class="img-front animate__animated animate__backInDown">
+          <img [src]="['/assets/icon/front.png']">
+        </div>
+        <div class="img-back animate__animated animate__backInUp">
+          <img [src]="['/assets/icon/back.png']">
+        </div>
+        <div class="animate__animated animate__bounceIn"><p class="text-center">สติ๊กเกอร์ถ่ายทอดความรู้สึก</p></div>
+      </div>
+    </div>
+  </div>
+<!-- title -->
+<div class="row">
+    <div class="col-12">
+        <div class="card card-title">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="mx-auto"><h6 class="mb-0">เหตุการณ์</h6></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content -->
+<div class="row">
+    <div class="col-6 col-md-6" *ngFor="let item of student">
+        <a [routerLink]="[item.link]">
+        <div class="card card-content">
+            <div class="card-body text-center">
+                <img [src]="item.image" class="img-fluid">
+                <h6>{{item.name}}</h6>
+            </div>
+        </div>
+        </a>
+    </div>
+</div>
